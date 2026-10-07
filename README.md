@@ -157,4 +157,4 @@ Wazuh 4.14.7 · Ubuntu 24.04 LTS · Kali Linux · VMware Workstation · OpenSSH 
 ## Author
 
 **Manasi** | Aspiring SOC Analyst
-[LinkedIn](https://www.linkedin.com/in/YOUR-PROFILE) · [GitHub](https://github.com/YOUR-USERNAME)
+[LinkedIn](https://www.linkedin.com/in/manasi-janapurkar-b11287169) · [GitHub](https://github.com/manasi-1211)
