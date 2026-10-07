@@ -36,6 +36,7 @@ controlled testing         Wazuh Indexer
 ```
 
 ![Host RAM check](../images/setup/fig01-host-ram-task-manager.png)
+
 *Figure 1: Windows Task Manager confirming the physical host had 16 GB RAM to support both VMs.*
 
 ---
@@ -115,9 +116,11 @@ sudo resize2fs /dev/sda2
 **SOC meaning:** Wazuh generates and stores large volumes of data, so extra storage reduces the risk of running out of space during testing.
 
 ![VMware disk expansion](../images/setup/fig02-vmware-disk-50gb.png)
+
 *Figure 2: VMware disk setting showing the virtual disk expanded to 50 GB. (The VM was later raised to 6 GB RAM and 4 CPU cores.)*
 
 ![Ubuntu disk verification](../images/setup/fig03-ubuntu-disk-verification.png)
+
 *Figure 3: Ubuntu confirming the expanded 50 GB filesystem.*
 
 ### 1.7 Set a meaningful hostname
@@ -183,6 +186,7 @@ nodes:
 **Why all three use the same IP:** This is a single-host deployment. The Indexer, Server and Dashboard are separate services running on one VM.
 
 ![config.yml](../images/setup/fig04-wazuh-config-yml.png)
+
 *Figure 4: Wazuh `config.yml` with the Ubuntu SOC IP used for the central components.*
 
 ### 3.3 Generate installation material
@@ -330,6 +334,7 @@ sudo systemctl status wazuh-agent --no-pager
 **Result:** The agent was active and appeared as an **Active** endpoint in the Wazuh Dashboard.
 
 ![Kali agent active](../images/setup/fig05-kali-agent-active.png)
+
 *Figure 5: Wazuh Endpoints view showing the Kali endpoint as Active.*
 
 ![Kali endpoint inventory](../images/setup/fig06-kali-endpoint-inventory.png)
