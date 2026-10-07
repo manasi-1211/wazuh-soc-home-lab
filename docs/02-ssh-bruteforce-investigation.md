@@ -36,6 +36,7 @@ ssh manasi@192.168.58.131
 **Meaning:** Kali successfully authenticated to Ubuntu. This was a normal lab event, separate from the later brute-force test.
 
 ![Successful SSH login](../images/ssh-bruteforce/fig07-ssh-successful-login.png)
+
 *Figure 7: Ubuntu authentication log showing a successful SSH login from Kali.*
 
 ---
@@ -57,6 +58,7 @@ sudo journalctl -u ssh --no-pager | grep "Failed password" | tail -10
 **Result:** Recent failures showed source IP `192.168.58.130` and target user `manasi`.
 
 ![SSH failed logins in journal](../images/ssh-bruteforce/fig08-ssh-failed-logins-journal.png)
+
 *Figure 8: Ubuntu SSH journal showing failed password events from the Kali source IP.*
 
 ---
@@ -136,6 +138,7 @@ full_log:       Failed password for manasi from 192.168.58.130 ...
 > **Important distinction:** `agent.name` shows *where the event was collected* (`ubuntu-soc`). `data.srcip` shows *where the connection came from* (`192.168.58.130`). Seeing `ubuntu-soc` as the agent does not mean Ubuntu was the attacker.
 
 ![Document details](../images/ssh-bruteforce/fig11-document-details-ssh-failure.png)
+
 *Figure 11: Wazuh Document Details showing source IP, target user, decoder and original log.*
 
 ---
@@ -205,6 +208,7 @@ SSH failure → Rule 5760 → repeated failures from same source → Rule 5763 �
 | `firedtimes` | 1 (this is a rule-fire count, not a count of attacks) |
 
 ![Rule 5763 alert](../images/ssh-bruteforce/fig12-rule-5763-bruteforce-alert.png)
+
 *Figure 12: Wazuh Rule 5763 alert showing Level 10, frequency 8, MITRE T1110 and source IP.*
 
 ### Surrounding events
