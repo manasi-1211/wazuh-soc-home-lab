@@ -1,0 +1,34 @@
+<!--
+  Wazuh agent configuration changes on kali-lab
+  File: /var/ossec/etc/ossec.conf
+  These are snippets showing only the parts I added or checked,
+  not the whole file. Existing settings were left in place.
+-->
+
+<!-- 1. Tell the agent where the Wazuh Manager is (Part 1) -->
+<client>
+  <server>
+    <address>192.168.58.131</address>
+  </server>
+</client>
+
+<!-- 2. File Integrity Monitoring: add a safe test directory (Part 3)
+        Added INSIDE the existing <syscheck> section.
+        The defaults (/etc, /usr/bin, /usr/sbin, /bin, /sbin, /boot) were kept. -->
+<syscheck>
+  <directories realtime="yes">/home/manasi/fim-lab</directories>
+</syscheck>
+
+<!-- 3. Security Configuration Assessment: existing settings, unchanged (Part 4) -->
+<sca>
+  <enabled>yes</enabled>
+  <scan_on_start>yes</scan_on_start>
+  <interval>12h</interval>
+  <skip_nfs>yes</skip_nfs>
+</sca>
+
+<!--
+  Validate after editing:
+    sudo /var/ossec/bin/wazuh-syscheckd -t
+    sudo systemctl restart wazuh-agent
+-->

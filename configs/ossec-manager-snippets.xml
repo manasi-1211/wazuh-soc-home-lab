@@ -1,0 +1,18 @@
+<!--
+  Wazuh configuration change on ubuntu-soc
+  File: /var/ossec/etc/ossec.conf
+  Snippet only. The existing journald, active-responses.log and dpkg.log
+  <localfile> blocks were kept; this block was added alongside them (Part 2).
+-->
+
+<!-- Monitor Ubuntu's authentication log so SSH events reach Wazuh -->
+<localfile>
+  <log_format>syslog</log_format>
+  <location>/var/log/auth.log</location>
+</localfile>
+
+<!--
+  Validate and apply:
+    sudo /var/ossec/bin/wazuh-analysisd -t
+    sudo systemctl restart wazuh-manager
+-->

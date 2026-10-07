@@ -1,0 +1,20 @@
+# Wazuh installation configuration (single-host deployment)
+# Used with: sudo bash wazuh-install.sh --generate-config-files
+# All three components run on the same Ubuntu VM (ubuntu-soc), so they share one IP.
+# 192.168.58.131 is a private lab address.
+
+nodes:
+  # Wazuh Indexer: stores and indexes security data
+  indexer:
+    - name: node-1
+      ip: "192.168.58.131"
+
+  # Wazuh Server: Manager that analyses events and applies rules
+  server:
+    - name: wazuh-1
+      ip: "192.168.58.131"
+
+  # Wazuh Dashboard: web interface for investigation
+  dashboard:
+    - name: dashboard
+      ip: "192.168.58.131"
